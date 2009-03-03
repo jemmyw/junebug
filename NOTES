@@ -1,0 +1,15 @@
+
+
+TODO
+
+* should probably separate signup/login
+* signup with captcha
+* authentication tests
+* attachments
+* more tests
+* help pages
+
+tidy -i -wrap 100 JunebugWiki  | mate
+
+rake test RUBY_FLAGS=''
+

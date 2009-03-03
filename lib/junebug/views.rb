@@ -140,6 +140,11 @@ module Junebug::Views
       ul {
         @pages.each { |p| li{ a p.title, :href => R(Show, p.title_url) } }
       }
+
+      if @pages.empty?
+        p "No results found."
+        p { a "Create '#{@search_term}'", :href => R(Edit, @search_term.gsub(/\s/,'_')) }
+      end
     end
     _footer { '' }
   end
@@ -312,8 +317,6 @@ module Junebug::Views
     rc = RedCloth.new(txt, [])
     rc.hard_breaks = true
     text rc.to_html
-
-#    text RedCloth.new(txt, [ ]).to_html
   end
 
   def _header type
